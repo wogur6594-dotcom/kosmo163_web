@@ -3,9 +3,7 @@ package com.jh.app.countries;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
-import com.jh.app.departments.DepartmentDTO;
 import com.jh.app.util.DBConnection;
 
 public class CountryDAO {
@@ -33,7 +31,7 @@ public class CountryDAO {
 	}
 	
 	
-	public ArrayList<CountryDTO> list() throws Exception {
+	public void list() throws Exception {
 		DBConnection connection = new DBConnection();
 		Connection con = connection.getConnection();
 		
@@ -44,24 +42,14 @@ public class CountryDAO {
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			CountryDTO dto = new CountryDTO();
 			String name = rs.getString("COUNTRY_NAME");
-			int id= rs.getInt("COUNTRY_ID");
-
-			
-			dto.setCountryName(name);
-			dto.setCountryId(id);
-
-			
-			ar.add(dto);
-			
+			String id = rs.getString("COUNTRY_ID");
+			System.out.println(id + " : "+name);
 		}
 		
 		rs.close();
 		st.close();
 		con.close();
-		
-		return ar;
 	}
 
 }

@@ -8,15 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h4>부서 리스트</h4>
+	<h5>Locale A</h5>
 
+	<h5>Locale C</h5>
 
-	<h2>Departments List</h2>
+	<h5>Home B</h5>
 
 	<div>
 		<table>
 			<thead>
 				<tr>
-					<th>Department No.</th>
+					<th>Department No</th>
 					<th>Department Name</th>
 				</tr>
 			</thead>
@@ -24,20 +27,21 @@
 				<c:forEach items="${list}" var="d">
 					<tr>
 						<td>${d.departmentId}</td>
-						<td>${d.departmentName}</td>
+						<td><a href="/dept/detail?departmentId=${d.departmentId}">${d.departmentName}</a></td>
 					</tr>
 					<!-- 
-				getter의 이름 : getter메서드에서
-				get을 빼고 () 뺀거	
-				첫글자를 소문자로 바꾼거
-				ex) getName() => name
-			 -->
-			</tbody>
-			</c:forEach>
+						getter의 이름 : getter메서드에서
+						get을 빼고 () 빼고
+						첫글자를 소문자로 바꾼거
+						ex) getName() => name
+					-->
 
+
+
+				</c:forEach>
+			</tbody>
 		</table>
 	</div>
-
 
 </body>
 </html>
