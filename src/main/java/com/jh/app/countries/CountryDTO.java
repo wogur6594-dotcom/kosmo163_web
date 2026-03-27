@@ -1,17 +1,17 @@
 package com.jh.app.countries;
 
 public class CountryDTO {
-	
-	private String countrytId;
+
+	private String countryId;
 	private String countryName;
-	private int regionId;
+	private Integer regionId;
 	
 	
-	public String getCountrytId() {
-		return countrytId;
+	public String getCountryId() {
+		return countryId;
 	}
-	public void setCountrytId(String countrytId) {
-		this.countrytId = countrytId;
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
 	}
 	public String getCountryName() {
 		return countryName;
@@ -19,12 +19,10 @@ public class CountryDTO {
 	public void setCountryName(String countryName) {
 		this.countryName = countryName;
 	}
-	public int getRegionId() {
+	public Integer getRegionId() {
 		return regionId;
 	}
-	public void setRegionId(int regionId) {
+	public void setRegionId(Integer regionId) {
 		this.regionId = regionId;
 	}
-
-
 }

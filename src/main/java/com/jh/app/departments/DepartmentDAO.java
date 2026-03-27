@@ -14,6 +14,84 @@ public class DepartmentDAO {
 		this.connection = new DBConnection();
 	}
 	
+	public int update(DepartmentDTO departmentDTO)throws Exception{
+		Connection con = connection.getConnection();
+		String sql = """
+					UPDATE DEPARTMENTS
+					SET DEPARTMENT_NAME=?,
+					MANAGER_ID=?,
+					LOCATION_ID=?
+					WHERE DEPARTMENT_ID=?
+					
+				""";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, departmentDTO.getDepartmentName());
+		st.setInt(2, departmentDTO.getManagerId());
+		st.setInt(3, departmentDTO.getLocationId());
+		st.setInt(4, departmentDTO.getDepartmentId());
+		
+		int result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		return result;
+		
+		
+	}
+	
+	
+	
+	public int delete(DepartmentDTO departmentDTO) throws Exception {  // ? 값이 없으니 매개변수로 받기
+		Connection con = connection.getConnection();
+		
+		String sql = "DELETE DEPARTMENTS WHERE DEPARTMENT_ID=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);//미리보내기
+		
+		st.setInt(1, departmentDTO.getDepartmentId());
+		
+		int result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		return result;
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	public int create(DepartmentDTO departmentDTO) throws Exception {
+		Connection con = connection.getConnection();
+		String sql="""
+					INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID)
+					VALUES (DEPARTMENTS_SEQ.NEXTVAL, ?,?,?) 
+					""";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, departmentDTO.getDepartmentName());
+		st.setInt(2, departmentDTO.getManagerId());
+		st.setInt(3, departmentDTO.getLocationId());
+		
+		int result = st.executeUpdate();
+		
+	
+		
+		st.close();
+		con.close();
+		
+		return result;
+		
+		
+	}
+	
 	public DepartmentDTO detail(int departmentId) throws Exception {
 		
 		Connection con = connection.getConnection();

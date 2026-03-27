@@ -1,17 +1,14 @@
 package com.jh.app.test.countries;
 
-import java.sql.PreparedStatement;
-
-import com.jh.app.countries.CountriesDAO;
-
+import com.jh.app.countries.CountryDAO;
 
 public class CountryTest {
 
 	public static void main(String[] args) {
-
-		CountriesDAO dao = new CountriesDAO();
+		CountryDAO countryDAO = new CountryDAO();
+		
 		try {
-			dao.detail();
+			countryDAO.detail();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

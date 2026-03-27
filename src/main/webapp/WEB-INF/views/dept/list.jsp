@@ -14,6 +14,12 @@
 	<h5>Locale C</h5>
 
 	<h5>Home B</h5>
+	
+	<div>
+		<a href="./create"> Department Create </a>
+	
+	
+	</div>
 
 	<div>
 		<table>
