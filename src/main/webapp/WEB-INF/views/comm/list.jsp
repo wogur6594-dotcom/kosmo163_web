@@ -8,32 +8,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h4>부서 리스트</h4>
+	<h4>Contents List</h4>
 	<h5>Locale A</h5>
 
 	<h5>Locale C</h5>
 
 	<h5>Home B</h5>
-	
+
 	<div>
-		<a href="./create"> Department Create </a>
-	
-	
+		<a href="./create"> Create Contents </a>
 	</div>
 
 	<div>
 		<table>
 			<thead>
 				<tr>
-					<th>Department No</th>
-					<th>Department Name</th>
+					<th>Contents No.</th>
+					<th>Title</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="d">
 					<tr>
-						<td>${d.departmentId}</td>
-						<td><a href="/dept/detail?departmentId=${d.departmentId}">${d.departmentName}</a></td>
+						<td>${d.commNum}</td>
+						<td><a href="./detail?commNum=${d.commNum}">${d.commName}</a></td>
 					</tr>
 					<!-- 
 						getter의 이름 : getter메서드에서

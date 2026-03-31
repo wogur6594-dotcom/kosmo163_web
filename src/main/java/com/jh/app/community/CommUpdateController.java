@@ -1,4 +1,4 @@
-package com.jh.app.departments;
+package com.jh.app.community;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -9,16 +9,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class DepartmentCreateController
+ * Servlet implementation class CommUpdateController
  */
-@WebServlet("/dept/create")
-public class DepartmentCreateController extends HttpServlet {
+@WebServlet("/comm/update")
+public class CommUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DepartmentCreateController() {
+    public CommUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,12 @@ public class DepartmentCreateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/dept/create.jsp");
+		String num = request.getParameter("commNum");
+		int n = Integer.parseInt(num);
+		
+		CommDAO dao = new CommDAO();
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/comm/update.jsp");
 		view.forward(request, response);
 	}
 
@@ -37,29 +42,19 @@ public class DepartmentCreateController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String name = request.getParameter("departmentName");
-		String m = request.getParameter("managerId");
-		String l = request.getParameter("locationId");
+		CommDTO commDTO = new CommDTO();
+		String title = request.getParameter("commTitle");
+		String name = request.getParameter("commName");
+		String contents = request.getParameter("commContents");
+		String s = request.getParameter("commStar");
+		int star = Integer.parseInt(s);
 		
-		DepartmentDTO departmentDTO = new DepartmentDTO();
-		departmentDTO.setDepartmentName(name);
-		departmentDTO.setManagerId(Integer.parseInt(m));
-		departmentDTO.setLocationId(Integer.parseInt(l));
+		commDTO.setCommTitle(title);
+		commDTO.setCommName(name);
+		commDTO.setCommContents(contents);
+		commDTO.setCommStar(star);
 		
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		try {
-			int result = departmentDAO.create(departmentDTO);
-			if(result > 0) {
-				response.sendRedirect("/dept/list");
-				
-			}else {
-				
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		CommDAO commDAO = new CommDAO();
 		
 	}
 

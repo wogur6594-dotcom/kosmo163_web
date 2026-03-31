@@ -7,8 +7,8 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>Index Page ㅋㅋ</h1>
-		<a href = "/dept/list">Department management</a>
-		<a href = "/country/list">Country List</a>
+		<h1>Index Page JH</h1>
+		<a href="/comm/list"> Delivery message list </a>
+		
 	</body>
 </html>
