@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -55,9 +57,14 @@ public class EmployeeLoginController extends HttpServlet {
 				System.out.println("fail");
 			}
 			
-			request.setAttribute("dto", employeeDTO);
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
-			view.forward(request, response);
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("dto", employeeDTO);
+			
+			
+			
+			response.sendRedirect("/home");
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

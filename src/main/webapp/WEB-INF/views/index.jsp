@@ -17,7 +17,7 @@
 		</c:if>
 		
 		<c:if test="${not empty dto}">
-		<a href="">Logout</a>
+		<a href="/emp/logout">Logout</a>
 		</c:if>
 		
 	</body>
