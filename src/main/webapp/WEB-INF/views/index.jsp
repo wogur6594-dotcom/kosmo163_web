@@ -8,16 +8,15 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>Index Page DK</h1>
-		<a href="/dept/list">부서관리</a>
-		<a href="/country/list">국가 관리</a>
+		<h1>Member Page</h1>
+		<a href="/mem/join">회원가입</a>
 		
 		<c:if test="${empty dto}">
-		<a href="/emp/login">Login</a>
+		<a href="/mem/login">Login</a>
 		</c:if>
 		
 		<c:if test="${not empty dto}">
-		<a href="/emp/logout">Logout</a>
+		<a href="/mem/logout">Logout</a>
 		</c:if>
 		
 	</body>
