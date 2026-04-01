@@ -18,6 +18,6 @@
 		<c:if test="${not empty dto}">
 		<a href="/mem/logout">Logout</a>
 		</c:if>
-		
+		<a href="/mem/list">회원 목록</a>
 	</body>
 </html>
