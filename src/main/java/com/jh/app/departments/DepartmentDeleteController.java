@@ -36,17 +36,14 @@ public class DepartmentDeleteController extends HttpServlet {
 			
 			if(result>0) {
 				response.sendRedirect("./list");
-				
 			}else {
 				response.sendRedirect("detail?departmentId="+id);
-				
 			}
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**

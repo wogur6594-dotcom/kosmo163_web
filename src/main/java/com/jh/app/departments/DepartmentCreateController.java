@@ -48,12 +48,13 @@ public class DepartmentCreateController extends HttpServlet {
 		
 		DepartmentDAO departmentDAO = new DepartmentDAO();
 		try {
-			int result = departmentDAO.create(departmentDTO);
+			int result =departmentDAO.create(departmentDTO);
 			if(result > 0) {
 				response.sendRedirect("/dept/list");
 				
 			}else {
-				
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/dept/list.jsp");
+				view.forward(request, response);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

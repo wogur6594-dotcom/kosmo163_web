@@ -16,21 +16,11 @@
 			<div class="container px-5 mb-5">
 				<div class="text-center mb-5">
 					<h1 class="display-5 fw-bolder mb-0">
-						<!-- <span class="text-gradient d-inline">Projects</span> -->
+						<span class="text-gradient d-inline">Projects</span>
 					</h1>
 				</div>
 
-				<div class="row gx-5 justify-content-center">
-
-
-					<img
-						src="${pageContext.request.contextPath}/resource/images/sample.png"
-						class="img-fluid">
-
-
-
-
-				</div>
+				<div class="row gx-5 justify-content-center">페이지 내용</div>
 			</div>
 		</section>
 

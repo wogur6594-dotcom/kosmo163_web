@@ -30,7 +30,7 @@ public class CountryDetailController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/country/detail.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/country/list.jsp");
 		view.forward(request, response);
 	}
 

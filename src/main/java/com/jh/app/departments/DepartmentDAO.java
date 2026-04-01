@@ -18,10 +18,11 @@ public class DepartmentDAO {
 		Connection con = connection.getConnection();
 		String sql = """
 					UPDATE DEPARTMENTS
-					SET DEPARTMENT_NAME=?,
-					MANAGER_ID=?,
-					LOCATION_ID=?
-					WHERE DEPARTMENT_ID=?
+					SET 
+						DEPARTMENT_NAME=?,
+						MANAGER_ID=?,
+						LOCATION_ID=?
+					WHERE DEPARTMENT_ID=?	
 					
 				""";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -37,17 +38,14 @@ public class DepartmentDAO {
 		
 		return result;
 		
-		
 	}
 	
-	
-	
-	public int delete(DepartmentDTO departmentDTO) throws Exception {  // ? 값이 없으니 매개변수로 받기
+	public int delete(DepartmentDTO departmentDTO) throws Exception {
 		Connection con = connection.getConnection();
 		
-		String sql = "DELETE DEPARTMENTS WHERE DEPARTMENT_ID=?";
+		String sql ="DELETE DEPARTMENTS WHERE DEPARTMENT_ID=?";
 		
-		PreparedStatement st = con.prepareStatement(sql);//미리보내기
+		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setInt(1, departmentDTO.getDepartmentId());
 		
@@ -57,16 +55,7 @@ public class DepartmentDAO {
 		con.close();
 		
 		return result;
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
 	
 	public int create(DepartmentDTO departmentDTO) throws Exception {
 		Connection con = connection.getConnection();
@@ -82,14 +71,12 @@ public class DepartmentDAO {
 		
 		int result = st.executeUpdate();
 		
-	
+		
 		
 		st.close();
 		con.close();
 		
 		return result;
-		
-		
 	}
 	
 	public DepartmentDTO detail(int departmentId) throws Exception {

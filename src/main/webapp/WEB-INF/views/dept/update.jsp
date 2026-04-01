@@ -25,9 +25,7 @@
 			<label>지역코드</label>
 			<input type="text" name="locationId" value="${dto.locationId}">
 		</div>
-		<button type="submit">button</button>
-		<input type="submit" value="create">		
-		<input type="button" value="등록">
+		<input type="submit" value="수정">		
 		<input type="reset" value="reset">
 	
 	</form>
